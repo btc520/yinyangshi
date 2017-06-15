@@ -66,7 +66,7 @@ def att_loop(group, attStepList):
     
     att_SUM = 0
     
-    Times = 1000
+    Times = 100
     
     for i in range(Times):
         
@@ -74,7 +74,7 @@ def att_loop(group, attStepList):
             att_1 = att1(i, attFIX, attPerADD, critAdd, critPer)[0]
             att_SUM +=att_1
     
-    att_SUM_round = round(att_SUM/1000000000,1)
+    att_SUM_round = round(att_SUM/1000000,3)
         
     return att_SUM_round, "null"
     
@@ -103,9 +103,14 @@ print ("主爆伤加暴击    - result times - %s, crit times - %s" % (critEXT_c
 
 
 ##主暴击加暴击
-group_crit_plus = [304, 0.72, 0, 0.48]
-crit_plus_crit = att_loop(group_crit_plus, attEACH)
-print ("主暴击加暴击   - result times - %s, crit times - %s" % (crit_plus_crit[0], crit_plus_crit[1]))
+group_crit_crit = [304, 0.72, 0, 0.48]
+crit_crit_group = att_loop(group_crit_crit, attEACH)
+print ("主暴击加暴击   - result times - %s, crit times - %s" % (crit_crit_group[0], crit_crit_group[1]))
+
+##主暴击加爆伤
+group_crit_critEXT = [304, 0.72, 0.12, 0.36]
+crit_critEXT_group = att_loop(group_crit_critEXT, attEACH)
+print ("主暴击加爆伤   - result times - %s, crit times - %s" % (crit_critEXT_group[0], crit_critEXT_group[1]))
 
 
 ##主攻击加暴击
